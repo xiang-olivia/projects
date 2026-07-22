@@ -1,0 +1,24 @@
+
+   
+        
+// code adapted from: https://medium.com/@Bigscal-Technologies/what-is-mutation-observer-and-how-to-use-it-957d74dc29b1
+// creates a mutation observer to look for changes in the body
+/*var targetNode = document.body;
+const config = { childList: true, characterData: true, subtree: true, attributes: true, };
+const callback = function(mutationList, observer) {
+    console.log("mutation observered");
+    console.log(isProcessing);
+    for (let mutation of mutationList) {
+        if (mutation.type === 'childList') {
+            if (isProcessing === false) {
+                addEventListeners();
+                console.log('callback!!!');
+            }
+        }
+    }
+};
+const observer = new MutationObserver(callback);
+observer.observe(targetNode, config);
+if (isProcessing === false) {
+    addEventListeners();
+}*/

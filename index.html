@@ -1,96 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initia">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width", initial-scale="1.0" />
         <link rel="stylesheet" href="style.css">
+
     </head>
-    <body style="background-color: #FBEFEF;">
-        <div>
-            <h1 class="title" style="color: #FFFFFF">Outfit Selector</h1>
-        </div>
-        <div>
-            <p>YOUR WARDROBE</p>
-            
-            <template id="templateCloset">
-                <li class="clean-list">
-                    <div>
-                        <p id="templateClosetName"></p>
-                        <p id="templateClosetCategory" class="templateClosetCategory"></p>
-                        <button id="templateDelete" class="templateDelete">X</button>
-                        <div class="circle" id="circle"></div>
-                    </div>
-                </li>
-            </template>
+    <body>
+        <template id="li_template">
+            <li>
+                <div class="container">
+                    <p class="text" contentEditable="false">Task</p>
+                    <button class="edit"></button>
+                    <button class="delete"></button>
+                </div>
+            </li>
+        </template>
+        <h2 class="title">To-Do List</h2>
+        <form>
+            <input id="task" autocomplete="off" autofocus name="task" placeholder="Task" type="text">
+            <button id="button">Add</button>
+        </form>
+        <p id="error"></p>
+        <ul id="task-list"></ul>
 
-            <ul id="listOutfit"></ul>
-
-            <h2>Catalogue a garment</h2>
-            <form id="formCloset">
-                <label for="name">Name</label>
-                    <input name="name" type="text" id="name">
-
-                <label for="category">Category</label>
-                <select name="category" id="category">
-                    <option>Top</option>
-                    <option>Botton</option>
-                    <option>Outerwear</option>
-                    <option>Dress</option>
-                    <option>Shoes</option>
-                    <option>Acessories</option>
-                </select>
-
-                <label for="color">Color</label>
-                <input name="color" type="color" id="color">
-
-                <label for="formality">Formality</label>
-                <select name="formality">
-                    <option>Casual</option>
-                    <option>Smart Casual</option>
-                    <option>Formal</option>
-                    <option>Athletic</option>
-                </select>
-
-                <label for="warth">Warmth (1-5)</label>
-                <input name="warmth" type="number" min="1" max="5">
-
-                <button type="button" id="submitClosetButton">Add to Closet</button>
-            </form>
-            <p id="emptyClosetElement"></p>
-        </div>
-        <div>
-            <p>TODAY'S OUTFIT</p>
-            <h2>Set the scene</h2>
-            <form id="formOutfit">
-                <label for="occasion">Occasion</label>
-                <select name="dropOccasion">
-                    <option>Work/Office</option> 
-                    <option>Casual Day Out</option>
-                    <option>Date Night</option>
-                    <option>Formal Event</option>
-                    <option>Workout</option>
-                    <option>Travel</option>
-                </select>
-
-                <label for="weather">Weather</label>
-                <select name="weather">
-                    <option>Sunny</option>
-                    <option>Cloudy</option>
-                    <option>Rainy</option>
-                    <option>Snowy</option>
-                    <option>Windy</option>
-                </select>
-
-                <label for="temperature">Temperature (C)</label>
-                    <input name="temperature" type="number" value=20>
-
-                <label for="mood">Mood/Notes</label>
-                    <input name="mood" type="text">
-                
-                <button type="button" id="submitOutfitButton">Generate Outfit</button>
-            </form>
-            <p id="emptyOutfitElement"></p>
-        </div>
-        <script src="script.js"></script>
+        <script src="list_1.js" type="module"></script>
     </body>
-</html>
+</htlm>
