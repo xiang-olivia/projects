@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-
+    closetItems = []
     //checks that all of the required input boxes are filled in
     function isEmpty(button, form, msg) {
         button.addEventListener("click", function() {
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (data.text) {
             console.log("Gemini says:", data.text);
+            return(data.text);
             // Example: Display it on your screen somewhere:
             // document.getElementById("aiResponseBox").textContent = data.text;
         } else {
@@ -46,24 +47,32 @@ document.addEventListener('DOMContentLoaded', function() {
     isEmpty(submitClosetButton, formCloset, emptyClosetElement);
     isEmpty(submitOutfitButton, formOutfit, emptyOutfitElement);
     
+    
+
     //adds new clothing items to the closet
     submitClosetButton.addEventListener("click", function() {
         const template = document.getElementById("templateCloset");
+
         const clothingItem = template.content.firstElementChild.cloneNode(true);
         clothingItem.querySelector("#templateClosetName").textContent = document.querySelector("#name").value;
         clothingItem.querySelector("#templateClosetCategory").textContent = document.querySelector("#category").value;
         clothingItem.querySelector("#circle").style.backgroundColor = document.querySelector("#color").value;
         document.querySelector("#listOutfit").append(clothingItem);
+
+        clothing = document.querySelector("#name").value + document.querySelector("#category").value + document.querySelector("#color").value;
+        closetItems.push(clothing);
     })
 
-    submitOutfitButton.addEventListener("click", function() {
-        let userRequestText= "Please suggest an outfit based on these parameters: "
+    submitOutfitButton.addEventListener("click", async function(event) {
+        event.preventDefault();
+        let userRequestText= "Please suggest an outfit using only these outfit items: " + closetItems + "refer to hte items by their name and color name, not hex code in dot jot notes, if there are none, return nothing and explain why they don't work to make the outfit, do not give me any commentary just the outfit items and recommend one item that they can add to their closet also within these parameters "
         for (let element of formOutfit.elements) {
             if (element.value != "" && element.name != "") {
                 const labelText = element.labels && element.labels[0] ? element.labels[0].textContent : element.name;
                 userRequestText += (labelText + ": " + element.value + ", ");
             }
         }
-        getAIOutfitAdvice(userRequestText)
+        const advice = await getAIOutfitAdvice(userRequestText);
+        recommendation.innerHTML = advice;
     })
 });
