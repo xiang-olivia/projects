@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "To-Do List",
+    "description": "Make your own to-do list",
+    "version": "1.0.0",
+    "icons": {
+        "16": "images/checklist-12.PNG",
+        "32": "images/checklist-32.PNG",
+        "48": "images/checklist-48.PNG",
+        "128": "images/checklist-128.PNG"
+    },
+    "action":
+    {
+        "default_popup": "index.html"
+    },
+        "permissions": ["storage"]
+}

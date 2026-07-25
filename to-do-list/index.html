@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width", initial-scale="1.0" />
+        <link rel="stylesheet" href="style.css">
 
+    </head>
+    <body>
+        <template id="li_template">
+            <li>
+                <div class="container">
+                    <p class="text" contentEditable="false">Task</p>
+                    <button class="edit"></button>
+                    <button class="delete"></button>
+                </div>
+            </li>
+        </template>
+        <h2 class="title">To-Do List</h2>
+        <form>
+            <input id="task" autocomplete="off" autofocus name="task" placeholder="Task" type="text">
+            <button id="button">Add</button>
+        </form>
+        <p id="error"></p>
+        <ul id="task-list"></ul>
+
+        <script src="list_1.js" type="module"></script>
+    </body>
+</htlm>
